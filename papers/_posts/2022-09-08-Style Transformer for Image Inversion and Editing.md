@@ -154,18 +154,21 @@ use_math: true
 - Loss design
     - $C^k_f$ : $k$th attribute embedding features from latent classifier $C$
     - $\mathcal{L}^{s \rightarrow r}_{emb}$ : edited attribute는 reference image와 같아지도록 학습
+    
     $$
     \mathcal{L}^{s \rightarrow r}_{emb} = \ \parallel
     C^k_f(w^e) - C^k_f(w^r) \parallel _2
     $$
 
     - $\mathcal{L}^{s \downarrow}_{emb}$ : 대상이 아닌 attribute는 source image와 같아지도록 학습
+    
     $$
     \mathcal{L}^{s \downarrow}_{emb} = \ \parallel
     C^{not k}_{f} (w^e) - C^{not k}_{f} (w^r) \parallel _2
     $$
 
     - $\mathcal{L}_{reg}$ : edited image가 source image로부터 많이 다르지 않도록
+    
     $$
     \mathcal{L}_{reg} = \ \parallel
     \Delta w \parallel _2 = \ \parallel
