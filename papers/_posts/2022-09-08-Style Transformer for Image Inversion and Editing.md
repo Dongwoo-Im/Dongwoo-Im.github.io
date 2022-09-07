@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22)"
-date:   2022-09-08 23:11:00 +0500
+date:   2022-09-08 05:25:00 +0900
 categories: paper
 ---
 
@@ -11,7 +11,6 @@ categories: paper
 
 깃허브 : https://github.com/sapphire497/style-transformer
 
-
 논문 스터디에서 진행하는 첫 논문 리뷰입니다. GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 처음이다보니 내용이 많이 어설픈 것 같네요. 오류에 대한 지적은 언제든 환영합니다. ~~(언젠가 댓글 기능을 만들어 두겠습니다.)~~
 
 ---
@@ -19,7 +18,7 @@ categories: paper
 ## 1. Introduction
 
 - StyleGAN을 활용한 Inverting과 Editing에는 어려움이 존재합니다.
-    - Several candidate latent embeddings ($$Z$$, $W$, $W^+$)
+    - Several candidate latent embeddings ($Z$, $W$, $W^+$)
         - 여러 latent embeddings 중 noise ($Z$), latent code ($W$)와 비교하여 18 different latent codes ($W^+$)의 풍부한 표현력이 Inverting task에는 적합한 것으로 보입니다. 하지만Editing task는  $W^+$ space에 대한 충분한 regularization 없이는 잘 되지 않고 있습니다.
             - (참고) Regularization은 e4e 논문에 등장하는 개념인데, e4e 논문의 저자는 offset을 도입하여 single code를 multi codes로 점진적 확장함으로써 variation을 낮춘 multi codes를 얻어야 editability를 높일 수 있다고 했습니다.
     - distribution in $W$ or $W^+$ are complex
