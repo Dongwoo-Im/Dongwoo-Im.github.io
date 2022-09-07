@@ -1,7 +1,0 @@
----
-layout: about
----
-
-# About
-
-<!--author-->

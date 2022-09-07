@@ -2,4 +2,6 @@
 layout: about
 ---
 
-# 소개
+# About
+
+<!--author-->
