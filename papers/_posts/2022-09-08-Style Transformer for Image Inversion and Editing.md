@@ -2,7 +2,7 @@
 layout: post
 title:  "Style Transformer for Image Inversion and Editing"
 date:   2022-09-08 05:30:00 +0900
-categories: paper
+categories: review
 comments: true
 use_math: true
 ---
