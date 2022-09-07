@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22)"
-date:   2022-09-08 05:25:00 +0900
+date:   2022-09-08 23:11:00 +0900
 categories: paper
 ---
 
@@ -10,6 +10,8 @@ categories: paper
 논문 : [2203.07932.pdf (arxiv.org)](https://arxiv.org/pdf/2203.07932.pdf)
 
 깃허브 : https://github.com/sapphire497/style-transformer
+
+ 
 
 논문 스터디에서 진행하는 첫 논문 리뷰입니다. GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 처음이다보니 내용이 많이 어설픈 것 같네요. 오류에 대한 지적은 언제든 환영합니다. ~~(언젠가 댓글 기능을 만들어 두겠습니다.)~~
 
