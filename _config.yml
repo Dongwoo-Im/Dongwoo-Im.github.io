@@ -12,6 +12,14 @@ url:                   https://dongwoo-im.github.io/
 # baseurl:               '/hydejack-starter-kit'
 
 
+# Math equation
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+
 # General settings
 # ---------------------------------------------------------------------------------------
 

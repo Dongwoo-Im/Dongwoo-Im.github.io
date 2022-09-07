@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "[Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22)"
-date:   2022-09-08 23:11:00 +0900
+title:  "Style Transformer for Image Inversion and Editing"
+date:   2022-09-08 05:30:00 +0900
 categories: paper
+comments: true
+use_math: true
 ---
 
 # [Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22)
