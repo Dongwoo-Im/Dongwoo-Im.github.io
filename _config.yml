@@ -182,16 +182,6 @@ kramdown:
 # pages with `comments: true` in the front matter.
 # disqus:                <username>
 
-comments:
-  # 'disqus' or 'utterances' are available
-  provider:            utterances
-
-utterances:
-  repo:                "Dongwoo-Im/utterances_comments"
-  issue-term:          "pathname"
-  label:               "Comments"
-  theme:               "photon-dark"
-
 # Setting a tinyletter username will enable the newsletter subscription box.
 # PRO version only!
 # tinyletter:            <username>
