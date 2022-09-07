@@ -9,9 +9,9 @@ use_math: true
 
 # [Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22)
 
-논문 : [2203.07932.pdf (arxiv.org)](https://arxiv.org/pdf/2203.07932.pdf)
+논문 링크 : [Style Transformer for Image Inversion and Editing](https://arxiv.org/pdf/2203.07932.pdf)
 
-깃허브 : https://github.com/sapphire497/style-transformer
+깃허브 링크 : [Github](https://github.com/sapphire497/style-transformer)
 
  
 
@@ -23,14 +23,14 @@ use_math: true
 
 - StyleGAN을 활용한 Inverting과 Editing에는 어려움이 존재합니다.
     - Several candidate latent embeddings ($Z$, $W$, $W^+$)
-        - 여러 latent embeddings 중 noise ($Z$), latent code ($W$)와 비교하여 18 different latent codes ($W^+$)의 풍부한 표현력이 Inverting task에는 적합한 것으로 보입니다. 하지만Editing task는  $W^+$ space에 대한 충분한 regularization 없이는 잘 되지 않고 있습니다.
-            - (참고) Regularization은 e4e 논문에 등장하는 개념인데, e4e 논문의 저자는 offset을 도입하여 single code를 multi codes로 점진적 확장함으로써 variation을 낮춘 multi codes를 얻어야 editability를 높일 수 있다고 했습니다.
+        - 여러 latent embeddings 중 noise ($Z$), latent code ($W$)와 비교하여 18 different latent codes ($W^+$)의 풍부한 표현력이 Inverting task에는 적합한 것으로 보입니다. 하지만 Editing task에서 $W^+$ space에 대한 충분한 regularization 없이는 잘 되지 않고 있습니다.
+            - (참고) Regularization은 e4e 논문에도 등장하는 개념인데, e4e 논문의 저자는 offset을 도입하여 single code를 multi codes로 점진적 확장함으로써 variation을 낮춘 multi codes를 얻어야 editability를 높일 수 있다고 했습니다.
     - distribution in $W$ or $W^+$ are complex
         - Attribute가 latent space 상에서 entangled 되어 있을 경우 editing이 어렵게 됩니다.
 
 - 이에 저자들은 encoder-based 접근 방식에 transformer block을 접목하여, inverting과 editing을 모두 잘할 수 있는 latent codes $W^+$를 찾고자 합니다.
 
-- 또한, 지금까지는 binary attribute의 경우 latent space 상에서 선형 분리된다는 가정이 있었기 때문에 모든 이미지에 대해 same direction으로 editing을 했습니다. 하지만 저자들은 이러한 direction이 최적이 아니라고 주장하며, label-based editing과 reference-based editing을 통해 각 이미지에 대해 고유한 direction을 결정하는 방법을 제안합니다.
+- 또한, 지금까지는 binary attribute의 경우 latent space 상에서 선형 분리된다는 가정이 있었기 때문에 모든 이미지에 대해 same direction으로 editing을 했습니다. 하지만 저자들은 이러한 direction 결정 방식은 최적이 아니라고 주장하며, label-based editing과 reference-based editing을 통해 각 이미지에 대해 고유한 direction을 결정하는 방법을 제안합니다.
 
 - 본 논문이 기여한 바를 요약하면 다음과 같습니다.
     - Multi-stage style transformer in $W^+$ space to invert image
@@ -46,13 +46,12 @@ use_math: true
     - 별도의 network 없이 latent code가 최적화되는 방식으로, 아직까지는 editing이 잘 되지는 않는다고 합니다.
 - Encoder-based
     - CNN(encoder)에서 추출한 feature를 활용하여 latent code를 최적화하는 방식으로, IDInvert, pSp, ReStyle, e4e 등의 논문이 이에 해당됩니다.
-    - 본 논문의 novelty는 $W^+$ space에 대한 regularization 없이 inverting과 editing에서 좋은 성능을 보였다는 점에 있습니다.
 
 ### Latent Code Manipulation
 
 - Unsupervised
     - GANSpace, Sefa 등 $W$ space에 대해 PCA를 활용하여 principal direction을 구하는 시도들이 있었지만, 이는 모든 이미지에 대해 same direction으로 editing한다는 단점이 존재합니다.
-    - Pixel domain으로의 접근, contrastive loss의 적용을 통해 editing direction을 모델이 직접 찾게 하는 시도들도 있었습니다. 이는 각각의 이미지에 not same direction을 적용한다는 점에서 개선점이 있지만, unsupervised 방식의 한계로 인해 오직 소수의 direction만 찾을 수 있었습니다.
+    - Pixel domain으로의 접근, contrastive loss의 적용을 통해 editing direction을 모델이 직접 찾게 하는 시도들도 있었습니다. 이는 각각의 이미지에 not same direction을 적용한다는 점에서 개선점이 있지만, unsupervised 방식의 한계로 인해 적은 수의 direction만 찾을 수 있었습니다.
 
 - Supervised
     - Label-based editing
@@ -65,8 +64,7 @@ use_math: true
             - CNN encoder to provide multi-scale features to supplement the 1x1 style vector
     
     - Reference-based editing
-        - Editing in Style 논문에서는 각 channel에 담긴 정보를 구분할 수 있는 channel-wise mask에 k-means clustering을 적용하는 reference-based editing 방법을 제안하였습니다.
-        - 본 논문의 novelty는 $W^+$ space 상에서 이루어진다는 점이고 label-based, reference-based editing을 동시에 제안했다는 점에 있습니다.
+        - Editing in Style 논문에서는 각 channel에 담긴 정보를 구분할 수 있는 channel-wise mask에 k-means clustering을 적용하는 방법을 제안하였습니다.
 
 ---
 
@@ -121,18 +119,20 @@ use_math: true
     - Flexible and high fidelity editing : 유연하면서 일관적인 editing이 가능한가
 
 - Style code에 대한 editing을 수식으로 표현하면 다음과 같습니다.
-    
-    $$
-    w^s \in R^{N\times512}
-    \\ w^e = w^s + \Delta w
-    \\ \widetilde I = G(w^e) 
-    $$
-    
     - $w^s$ : source image에 대한 inverted style code
     - $w^e$ : source image에서 수정된 inverted style code
     - $\Delta w$ : editing offset
+    
+        $$
+        w^e = w^s + \Delta w
+        $$
+
     - $\widetilde I$ : edited image
     - $G$ : styleGAN Generator
+    
+        $$
+        \widetilde I = G(w^e) 
+        $$
 
 ### Reference-based Editing
 
@@ -150,24 +150,27 @@ use_math: true
     - $w^r$ : reference image에 대한 inverted style code
     - 먼저, $w^s$에 대한 Self-attention을 수행합니다. 그 다음 self-attention의 결과를 $Query$로, $w^r$을 $Key$, $Value$로 cross-attention을 수행하여 $w^e$를 얻게 됩니다.
     - (보완 예정) 여기서 중요한 점은 $Softmax_Q$와 $Norm_K$를 통해 $w^r$의 value token이 $w^s$의 일부 token에만 영향을 준다고 합니다. (?)
+
 - Loss design
-    
-    $$
-    \mathcal{L}^{s \rightarrow r}_{emb} = \ \parallel
-    C^k_f(w^e) - C^k_f(w^r) \parallel _2
-    \\
-    \mathcal{L}^{s \downarrow}_{emb} = \ \parallel
-    C^{\cancel k}_{f} (w^e) - C^{\cancel k}_{f} (w^r) \parallel _2
-    \\
-    \mathcal{L}_{reg} = \ \parallel
-    \Delta w \parallel _2 = \ \parallel
-    w^e - w^s \parallel _2
-    $$
-    
     - $C^k_f$ : $k$th attribute embedding features from latent classifier $C$
     - $\mathcal{L}^{s \rightarrow r}_{emb}$ : edited attribute는 reference image와 같아지도록 학습
+        $$
+        \mathcal{L}^{s \rightarrow r}_{emb} = \ \parallel
+        C^k_f(w^e) - C^k_f(w^r) \parallel _2
+        $$
+
     - $\mathcal{L}^{s \downarrow}_{emb}$ : 대상이 아닌 attribute는 source image와 같아지도록 학습
+        $$
+        \mathcal{L}^{s \downarrow}_{emb} = \ \parallel
+        C^{\bcancel k}_{f} (w^e) - C^{\bcancel k}_{f} (w^r) \parallel _2
+        $$
+
     - $\mathcal{L}_{reg}$ : edited image가 source image로부터 많이 다르지 않도록
+        $$
+        \mathcal{L}_{reg} = \ \parallel
+        \Delta w \parallel _2 = \ \parallel
+        w^e - w^s \parallel _2
+        $$
 
 ### Label-based Editing
 
@@ -224,7 +227,7 @@ use_math: true
     ![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%203.png)
     
     - Attribute Dependency (AD) : attributes 간 disentanglement 측정하는 지표입니다.
-    - (보완 예정) Input image와 edited image 사이의 변화량을 normalize하여 AD score를 구할 수 있습니다. 여기서 $k$ attritbue에 대한 mean-AD를 구하기 위해서는 $\cancel k$ attributes에 대한 AD의 평균으로 구할 수 있습니다. (?)
+    - (보완 예정) Input image와 edited image 사이의 변화량을 normalize하여 AD score를 구할 수 있습니다. 여기서 $k$ attritbue에 대한 mean-AD를 구하기 위해서는 $\bcancel k$ attributes에 대한 AD의 평균으로 구할 수 있습니다. (?)
     
     ![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%204.png)
     
