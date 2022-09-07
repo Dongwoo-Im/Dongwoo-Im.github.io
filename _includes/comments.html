@@ -1,13 +1,12 @@
-<aside class="comments" role="complementary">
-        <h2>Comments</h2>
-        <hr/>
-
-        <script src="https://utteranc.es/client.js"
-                repo="Dongwoo-Im/utterances_comments"
-                issue-term="pathname"
-                theme="photon-dark"
-                crossorigin="anonymous"
-                async>
-        </script>
-
-</aside>
+{% if provider == "utterances" %}
+    {% assign utterances = site.utterances %}
+    {% if utterances.repo %}
+      <script src="https://utteranc.es/client.js"
+              repo=        {{ utterances.repo }}
+              issue-term=  {{ utterances.issue-term }}
+              theme=       {{ utterances.theme }}
+              crossorigin= "anonymous"
+              async>
+      </script>
+    {% endif %}
+{% endif %}
