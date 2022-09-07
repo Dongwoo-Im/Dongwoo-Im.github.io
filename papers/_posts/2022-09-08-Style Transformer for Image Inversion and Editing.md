@@ -9,9 +9,9 @@ use_math: true
 
 # [Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22)
 
-논문 링크 : [Style Transformer for Image Inversion and Editing](https://arxiv.org/pdf/2203.07932.pdf)
+[Paper Link](https://arxiv.org/pdf/2203.07932.pdf)
 
-깃허브 링크 : [Github](https://github.com/sapphire497/style-transformer)
+[Github Link](https://github.com/sapphire497/style-transformer)
 
  
 
