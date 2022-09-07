@@ -91,23 +91,23 @@ use_math: true
         - $\hat{I}$ : inverted image
     - L2 loss
         
-        $$
-        \mathcal{L}_{2}
-        = \ \parallel I - \hat{I} \parallel{^2}
-        $$
+    $$
+    \mathcal{L}_{2}
+    = \ \parallel I - \hat{I} \parallel{^2}
+    $$
         
     - LPIPS loss ($F$ : Inception net)
         
-        $$
-        \mathcal{L}_{LPIPS}=\ \parallel F(I) - F(\hat{I}) \parallel{^2}
-        $$
+    $$
+    \mathcal{L}_{LPIPS}=\ \parallel F(I) - F(\hat{I}) \parallel{^2}
+    $$
         
     - ID loss ($R$ : pretrained ArcFace model), (<> : cosine similarity)
         
-        $$
-        \mathcal{L}_{ID} = 
-        1 \ - <R(I),R(\hat{I})>
-        $$
+    $$
+    \mathcal{L}_{ID} = 
+    1 \ - <R(I),R(\hat{I})>
+    $$
         
 
 ---
@@ -123,16 +123,16 @@ use_math: true
     - $w^e$ : source image에서 수정된 inverted style code
     - $\Delta w$ : editing offset
     
-        $$
-        w^e = w^s + \Delta w
-        $$
+    $$
+    w^e = w^s + \Delta w
+    $$
 
     - $\widetilde I$ : edited image
     - $G$ : styleGAN Generator
     
-        $$
-        \widetilde I = G(w^e) 
-        $$
+    $$
+    \widetilde I = G(w^e) 
+    $$
 
 ### Reference-based Editing
 
@@ -154,23 +154,23 @@ use_math: true
 - Loss design
     - $C^k_f$ : $k$th attribute embedding features from latent classifier $C$
     - $\mathcal{L}^{s \rightarrow r}_{emb}$ : edited attribute는 reference image와 같아지도록 학습
-        $$
-        \mathcal{L}^{s \rightarrow r}_{emb} = \ \parallel
-        C^k_f(w^e) - C^k_f(w^r) \parallel _2
-        $$
+    $$
+    \mathcal{L}^{s \rightarrow r}_{emb} = \ \parallel
+    C^k_f(w^e) - C^k_f(w^r) \parallel _2
+    $$
 
     - $\mathcal{L}^{s \downarrow}_{emb}$ : 대상이 아닌 attribute는 source image와 같아지도록 학습
-        $$
-        \mathcal{L}^{s \downarrow}_{emb} = \ \parallel
-        C^{\bcancel k}_{f} (w^e) - C^{\bcancel k}_{f} (w^r) \parallel _2
-        $$
+    $$
+    \mathcal{L}^{s \downarrow}_{emb} = \ \parallel
+    C^{not k}_{f} (w^e) - C^{not k}_{f} (w^r) \parallel _2
+    $$
 
     - $\mathcal{L}_{reg}$ : edited image가 source image로부터 많이 다르지 않도록
-        $$
-        \mathcal{L}_{reg} = \ \parallel
-        \Delta w \parallel _2 = \ \parallel
-        w^e - w^s \parallel _2
-        $$
+    $$
+    \mathcal{L}_{reg} = \ \parallel
+    \Delta w \parallel _2 = \ \parallel
+    w^e - w^s \parallel _2
+    $$
 
 ### Label-based Editing
 
@@ -227,7 +227,7 @@ use_math: true
     ![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%203.png)
     
     - Attribute Dependency (AD) : attributes 간 disentanglement 측정하는 지표입니다.
-    - (보완 예정) Input image와 edited image 사이의 변화량을 normalize하여 AD score를 구할 수 있습니다. 여기서 $k$ attritbue에 대한 mean-AD를 구하기 위해서는 $\bcancel k$ attributes에 대한 AD의 평균으로 구할 수 있습니다. (?)
+    - (보완 예정) Input image와 edited image 사이의 변화량을 normalize하여 AD score를 구할 수 있습니다. 여기서 $k$ attritbue에 대한 mean-AD를 구하기 위해서는 $not k$ attributes에 대한 AD의 평균으로 구할 수 있습니다. (?)
     
     ![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%204.png)
     
