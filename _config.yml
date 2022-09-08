@@ -188,7 +188,7 @@ comments:
 utterances:
   repo:                "Dongwoo-Im/utterances_comments"
   issue-term:          "pathname"
-  theme:               "photon-dark"
+  theme:               "github-light"
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # PRO version only!
