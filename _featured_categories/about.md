@@ -21,4 +21,6 @@ layout: about
 - `2022` `Naver Boostcamp AI Tech` `Image Classification` Mask wearing status classification `34/48` <br>
 
 
+# About
+
 <!--author-->

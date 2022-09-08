@@ -8,7 +8,7 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    안녕하세요. Computer Vision, Generative Model에 관심이 있습니다. |
+    Computer Vision, Generative Model에 관심이 있습니다.  
     오류에 대한 지적은 언제든 환영합니다. 감사합니다.
 
   # This photo will be used in the about section
