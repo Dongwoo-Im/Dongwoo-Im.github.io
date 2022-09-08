@@ -70,7 +70,7 @@ use_math: true
 
 ## 3. Framework of Style Transformer
 
-![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/Style Transformer for Image Inversion and Editing/1-framework-of-style-transformer.png)
 
 ### Style Transformer Block
 
@@ -136,7 +136,7 @@ use_math: true
 
 ### Reference-based Editing
 
-![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%201.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/Style Transformer for Image Inversion and Editing/2-reference-based-editing.png)
 
 - Module design
     
@@ -220,23 +220,23 @@ use_math: true
 - Editing task의 경우, 성능 비교를 위해 InterFaceGAN (face), GANSpace (car)로 editing direction을 찾았다고 합니다.
 - Convnet과 비교할 때, 겨우 18 (face), 16 (car) token을 사용한 점에서 transformer 방식이 가볍고 효율적인 방법임을 알 수 있고, 이는 또한 성능에서 나타나고 있습니다.
 
-![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%202.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/Style Transformer for Image Inversion and Editing/3-inversion-results.png)
 
 ### Editing Results
 
 - Label-based Editing
     - InterFaceGAN, StyleSpace와 비교하여 좋은 성능을 보이고 있습니다.
     
-    ![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%203.png)
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/Style Transformer for Image Inversion and Editing/4-label-based-editing-results.png)
     
     - Attribute Dependency (AD) : attributes 간 disentanglement 측정하는 지표입니다.
     - (보완 예정) Input image와 edited image 사이의 변화량을 normalize하여 AD score를 구할 수 있습니다. 여기서 $k$ attritbue에 대한 mean-AD를 구하기 위해서는 $not k$ attributes에 대한 AD의 평균으로 구할 수 있습니다. (?)
     
-    ![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%204.png)
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/Style Transformer for Image Inversion and Editing/5-label-based-editing-results-AD.png)
     
 - Reference-based Editing
     
-    ![Untitled](%5BPaper%20Review%5D%20Style%20Transformer%20for%20Image%20Inversi%206cf41996ad2c477a8ebde26af7eec8ad/Untitled%205.png)
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/Style Transformer for Image Inversion and Editing/6-reference-based-editing-results.png)
     
 
 ---
