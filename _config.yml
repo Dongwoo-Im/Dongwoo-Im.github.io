@@ -11,15 +11,6 @@ url:                   https://dongwoo-im.github.io/
 # NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
 # baseurl:               '/hydejack-starter-kit'
 
-
-# Math equation
-markdown: kramdown
-highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
-
-
 # General settings
 # ---------------------------------------------------------------------------------------
 
@@ -93,6 +84,16 @@ remote_theme: hydecorp/hydejack@v9
 # Customizaton
 # ----------------------------------------------------------------------------------------
  
+# favicon
+favicon:               /assets/favicon.ico
+
+# Math equation
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          rgb(79,177,186)
