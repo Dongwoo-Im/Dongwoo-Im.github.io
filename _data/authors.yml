@@ -9,7 +9,7 @@ author1:
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
     안녕하세요. |
-    Computer Vision, Generative Model에 관심이 있는 개발자입니다. |
+    Computer Vision, Generative Model에 관심이 있습니다. |
     오류에 대한 지적은 언제든 환영합니다. 감사합니다. |
 
   # This photo will be used in the about section
@@ -54,7 +54,7 @@ author1:
     # npm:             <username>
     # hackernews:      <username>
     # trello:          <firstnamelastname>
-    # linkedin:        <firstname-lastname-string>
+    linkedin:        dongwoo-im-77b4b5207
     # xing:            <firstname_lastname_counter>
     # blogger:         <number>
     # delicious:       <username>
