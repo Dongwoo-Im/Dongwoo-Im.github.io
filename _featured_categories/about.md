@@ -2,6 +2,8 @@
 layout: about
 ---
 
+### About
+
 ### About Me
 - B.S. in `Systems Management Engineering`, `Sungkyunkwan University` <br>
 - interested in `Computer Vision` and `Generative Model` <br>
