@@ -1,8 +1,7 @@
 ---
 layout: about
+title: About
 ---
-
-### About
 
 ### About Me
 - B.S. in `Systems Management Engineering`, `Sungkyunkwan University` <br>
