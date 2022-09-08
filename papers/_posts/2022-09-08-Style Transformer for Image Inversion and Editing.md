@@ -5,6 +5,9 @@ date:   2022-09-08 05:30:00 +0900
 categories: review
 comments: true
 use_math: true
+sitemap :
+    changefreq: daily
+    priority: 1.0
 ---
 
 # [Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22)
