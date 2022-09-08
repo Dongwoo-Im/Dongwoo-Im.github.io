@@ -2,11 +2,11 @@
 layout: post
 ---
 
-## About Me
+### About Me
 - B.S. in `Systems Management Engineering`, `Sungkyunkwan University` <br>
 - interested in `Computer Vision` and `Generative Model` <br>
 
-## AI Contest
+### AI Contest
 ### Public
 - `2022` `Dacon` `Image Classification` Diagnosis of crop diseases according to changes in agricultural environment `top 13%` <br>
 - `2021` `Dacon` `Object Detection` Capsule endoscopy small intestine lesion detection `top 16%` <br>
