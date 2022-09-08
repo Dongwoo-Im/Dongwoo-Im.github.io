@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: post
 ---
 
 # 블로그 소개
