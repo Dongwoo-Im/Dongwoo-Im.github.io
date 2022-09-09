@@ -10,13 +10,7 @@ sitemap :
     priority: 1.0
 ---
 
-# [Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22)
-
-[Paper Link](https://arxiv.org/pdf/2203.07932.pdf)
-
-[Github Link](https://github.com/sapphire497/style-transformer)
-
- 
+# [Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22) 
 
 논문 스터디에서 진행하는 첫 논문 리뷰입니다.
 GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 처음이다보니 내용이 많이 어설픈 것 같네요.
@@ -263,3 +257,11 @@ GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 �
 - This paper presents a transformer-based image inversion and editing method for StyleGAN. We choose W+ space to represent real images, which needs to determine multiple style codes for different layers of the generator. To effectively exploit information from input image, we design a multi-stage transformer module, which mainly consists of the self- and cross-attention. In the initial stage, the MLP maps a set of learnable noise vectors into the codes in W+, and then they are iteratively updated by the two types of attention operations, so the codes from the final stage can reconstruct the input accurately. Based on them, we are able to carry out label- and reference-based editing in a flexible way. Given a required label, an encoder-free strategy is employed to find the unique editing vector according to the gradient from a pretrained latent classifier. Meanwhile, given a reference code, a transformer block is trained to edit the source, so that the result takes the relevant style from the reference. Experiments show the proposed image inversion and editing method achieves less distortions and higher quality at the same time.
 
 ---
+
+## Reference
+
+- [Paper Link](https://arxiv.org/abs/2203.07932)
+
+- [Github Link](https://github.com/sapphire497/style-transformer)
+
+- [Designing an Encoder for StyleGAN Image Manipulation (e4e)](https://arxiv.org/abs/2102.02766)
