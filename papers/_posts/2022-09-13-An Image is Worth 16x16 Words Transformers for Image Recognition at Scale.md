@@ -26,7 +26,7 @@ sitemap :
 
 ## 2. Related work
 
-- Image의 각 pixel에 대해 self-attention을 그대로 적용하는 것은 현실적으로 불가능하기에, 이를 근사화하기 위해 self-attention의 범위를 제한하는 식으로 접근했다. 하지만 이러한 specialized attention 구조는 H/W 가속기에서의 연산을 위한 추가 작업이 필요하다는 단점이 있다.
+- Image의 각 pixel에 대해 self-attention을 그대로 적용하는 것은 quadratic cost로 인해 현실적으로 불가능하기에, 이를 근사화하기 위해 self-attention의 범위를 제한하는 식으로 접근했다. 하지만 이러한 specialized attention 구조는 H/W 가속기에서의 연산을 위한 추가 작업이 필요하다는 단점이 있다.
 
 - ViT와 가장 유사한 연구로, image로부터 2x2 patch를 추출한 다음 self-attention을 적용했던 `Cordonnier et al. (2020)`이 있다. ViT의 novelty는 다음과 같다.
 
@@ -170,7 +170,17 @@ Hybrid architecture
 
 - 가장 큰 ViT-H/14의 경우도 아직 포화되었다는 징후가 보이지 않는다. -> 더 키워볼 만 하다.
 
-- (보완 예정) Appendix D.5
+- Appendix D.5
+
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/9-figure12.png)
+
+    Left
+
+    - Input size 대비 추론 속도를 나타낸 그래프로, ViT가 이론적으로 bi-quadratic cost를 갖고 있기 때문에 input size가 커짐에 따라 미묘하게 추론 속도가 빨라지는 것을 볼 수 있다.
+
+    Right
+
+    - Input size 대비 largest batch size를 나타낸 그래프로, ResNet 모델에 비해 ViT 모델이 효율적인 memory로 동작한다는 점을 확인할 수 있다.
 
 ### 4.5 Inspecting vision transformer
 
@@ -192,7 +202,11 @@ Right
 
 - Network depth가 깊어질수록 attention distance가 증가하는 것을 볼 수 있다. 즉, ViT는 network가 깊어짐에 따라 image region에 대한 attention이 잘 되고 있으며, 이를 바탕으로 classification을 수행할 수 있다.
 
-- (보완 예정) Attention D.7
+- Attention D.7
+
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/10-figure11.png)
+
+    - Network depth가 0인 경우를 보자. ViT 모델에 비해 ResNet 모델은 약 2배의 mean attention distance를 보인다. 이는 앞서 설명했던 image에 대한 CNN 구조의 inductive bias가 갖는 장점으로 볼 수도 있다.
 
 ### 4.6 Self-supervision
 
