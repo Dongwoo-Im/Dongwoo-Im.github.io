@@ -12,6 +12,8 @@ sitemap :
 
 # [Paper Review] Averaging Weights Leads to Wider Optima and Better Generalization (SWA) (UAI ‘18)
 
+대회에서 몇 번 봤었는데, 어떤 기법인지 궁금해서 읽어봤습니다.
+
 ---
 
 ## 0. Abstract
@@ -50,7 +52,7 @@ SWA는 optimization, regularization과 관련이 있습니다.
 
         - 이러한 관점에서 저자들은 SWA가 해당 구체의 중심부로 향하는 효과적인 방법이라고 했습니다.
     
-    - Garipov et al. (2018) (FGE) : Cyclical LR로 학습함으로써 ensemble을 위한 재료가 될 정도의 성능을 갖는 다양한 model들을 선택할 수 있게 됩니다.
+    - Garipov et al. (2018) (FGE) : Cyclical LR로 학습하며 ensemble에 사용할 수 있는 준수한 성능을 갖는 다양한 model들을 선택하는 방법을 제안했습니다.
 
         - ![FGE](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/12-fge.png)
 
@@ -119,7 +121,7 @@ $$ w_{SGD}(t,d) = w_{SGD} + t*d $$
 
 $$ w(t) = t*w_{SGD} + (1-t)*w_{SWA} $$
 
-Figure 5는 $w(t)$를 시각화한 그래프입니다. 여기서도 앞에서 언급되었던 train loss와 test error 사이에 어쩔 수 없이 존재하는 shift 개념, 상대적으로 더 낮은 $w_{SGD}$의 train loss와 같은 내용들을 확인할 수 있습니다. 또한, `상대적으로 $w_{SWA}$에 비해 $w_{SGD}$가 가장자리에 위치하기 때문에 train - test 사이의 shift에 큰 영향을 받게 되고, 이로 인해 $w_{SGD}$가 $w_{SWA}$보다 낮은 일반화 성능을 갖는 것으로 해석할 수 있습니다.`
+Figure 5는 $w(t)$를 시각화한 그래프입니다. 여기서도 앞에서 언급되었던 train loss와 test error 사이에 어쩔 수 없이 존재하는 shift 개념, 상대적으로 더 낮은 $w_{SGD}$의 train loss와 같은 내용들을 확인할 수 있습니다. 또한, 상대적으로 $w_{SWA}$에 비해 $w_{SGD}$가 가장자리에 위치하기 때문에 train - test 사이의 shift에 큰 영향을 받게 되고, 이로 인해 $w_{SGD}$가 $w_{SWA}$보다 낮은 일반화 성능을 갖는 것으로 해석할 수 있습니다.
 
 한편, 이러한 관찰을 근거로 Keskar et al. (2017) 논문이 잘못된 결론에 도달한 이유를 설명합니다. 해당 논문의 저자들은 large batch로 학습한 SGD의 solution에 존재하는 sharp optima는 사실 대부분의 directions이 flat하지만 일부 direction에서 극도로 가파르다고 주장했습니다. 이러한 sharpness에 대한 잘못된 추측으로 인해 그들은 small batch SGD 보다 large batch SGD의 일반화 성능이 부족하다는 결론을 내리게 됩니다. 하지만 Figure 4, 5를 보면 (small batch) SGD 또한 일반화 성능의 하락을 유도할 만한 정도의 가파른 경계에 위치하는 것을 볼 수 있습니다. (그런데 SGD가 SWA에 비해 가파를 뿐이지, 언급한 연구를 했던 저자들의 결론이 잘못되었다고 할 수 있는지.. 잘 모르겠습니다.)
 
@@ -177,8 +179,12 @@ Torchvision에서 제공하는 pretrained model에 5 / 10 epoch 동안 SWA 학�
 
 ## 5. Discussion
 
+결론은 한 번 읽어보는 것이 좋다고 판단해서 그대로 인용했습니다.
+
 We have presented Stochastic Weight Averaging (SWA) for training neural networks. SWA is extremely easy to implement, architecture-agnostic, and improves generalization performance at virtually no additional cost over conventional training.
+
 There are so many exciting directions for future research. SWA does not require each weight in its average to correspond to a good solution, due to the geometry of weights traversed by the algorithm. It therefore may be possible to develop SWA for much faster convergence than standard SGD. One may also be able to combine SWA with large batch sizes while preserving generalization performance, since SWA discovers much broader optima than conventional SGD training. Furthermore, a cyclic learning rate enables SWA to explore regions of high posterior density over neural network weights. Such learning rate schedules could be developed in conjunction with stochastic MCMC approaches, to encourage exploration while still providing high quality samples. One could also develop SWA to average whole regions of good solutions, using the high-accuracy curves discovered in Garipov et al. [2018].
+
 A better understanding of the loss surfaces for multilayer networks will help continue to unlock the potential of these rich models. We hope that SWA will inspire further progress in this area
 
 ---
@@ -188,3 +194,5 @@ A better understanding of the loss surfaces for multilayer networks will help co
 - [Paper](https://arxiv.org/abs/1803.05407)
 
 - [Github](https://github.com/timgaripov/swa)
+
+- [Pytorch code](https://github.com/pytorch/pytorch/blob/4618371da56c887195e2e1d16dad2b9686302800/torch/optim/swa_utils.py)
