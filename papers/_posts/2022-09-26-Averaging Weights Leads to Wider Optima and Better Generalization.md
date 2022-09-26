@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Averaging Weights Leads to Wider Optima and Better Generalization"
-date:   2022-09-27 11:00:00 +0900
+date:   2022-09-26 19:00:00 +0900
 categories: review
 comments: true
 use_math: true
