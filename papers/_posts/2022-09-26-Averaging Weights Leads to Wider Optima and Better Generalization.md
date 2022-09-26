@@ -12,7 +12,9 @@ sitemap :
 
 # [Paper Review] Averaging Weights Leads to Wider Optima and Better Generalization (SWA) (UAI ‘18)
 
-대회에서 몇 번 봤었는데, 어떤 기법인지 궁금해서 읽어봤습니다.
+대회에서 몇 번 봤었는데, 어떤 내용인지 궁금해서 읽어봤습니다.
+
+한 줄로 요약하면, SWA는 loss surface 상에서 broader하고 flat한 optima를 찾을 수 있는 방법으로, 일반화 성능도 높일 수 있으며 일반적인 ensemble보다 효율적입니다.
 
 ---
 
@@ -179,7 +181,7 @@ Torchvision에서 제공하는 pretrained model에 5 / 10 epoch 동안 SWA 학�
 
 ## 5. Discussion
 
-결론은 한 번 읽어보는 것이 좋다고 판단해서 그대로 인용했습니다.
+결론은 한 번 읽어보는 것이 좋다고 생각해서 그대로 인용했습니다.
 
 We have presented Stochastic Weight Averaging (SWA) for training neural networks. SWA is extremely easy to implement, architecture-agnostic, and improves generalization performance at virtually no additional cost over conventional training.
 
