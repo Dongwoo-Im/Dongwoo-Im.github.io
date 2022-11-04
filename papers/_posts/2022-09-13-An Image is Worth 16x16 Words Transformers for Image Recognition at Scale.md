@@ -10,7 +10,7 @@ sitemap :
     priority: 1.0
 ---
 
-# [논문리뷰] An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ICLR ‘21)
+# [논문리뷰] An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (ViT) (ICLR ‘21)
 ---
 
 ## 1. Introduction
