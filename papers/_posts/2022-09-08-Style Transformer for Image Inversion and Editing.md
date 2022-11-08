@@ -10,7 +10,7 @@ sitemap :
     priority: 1.0
 ---
 
-# [논문리뷰] Style Transformer for Image Inversion and Editing (CVPR ‘22) 
+# [Paper Review] Style Transformer for Image Inversion and Editing (CVPR ‘22) 
 
 논문 스터디에서 진행하는 첫 논문 리뷰입니다.
 GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 처음이다보니 내용이 많이 어설픈 것 같네요.

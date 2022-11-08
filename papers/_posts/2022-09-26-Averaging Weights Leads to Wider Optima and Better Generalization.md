@@ -10,7 +10,7 @@ sitemap :
     priority: 1.0
 ---
 
-# [논문리뷰] Averaging Weights Leads to Wider Optima and Better Generalization (SWA) (UAI ‘18)
+# [Paper Review] Averaging Weights Leads to Wider Optima and Better Generalization (SWA) (UAI ‘18)
 
 대회에서 몇 번 봤었는데, 어떤 내용인지 궁금해서 읽어봤습니다.
 
