@@ -44,7 +44,7 @@ sitemap :
 
 ## 3. Method
 
-![ViT](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/1-model-overview.png)
+![ViT](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/1-model-overview.png){: .align-center}
 
 - 저자들은 NLP Transformer 구조의 확장성과 효율성을 강조하기 위해, 거의 수정하지 않았다고 한다.
 
@@ -104,7 +104,7 @@ Hybrid architecture
 
 ### 4.1 Setup
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/2-model-variants.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/2-model-variants.png){: .align-center}
 
 - Model variants
 
@@ -136,25 +136,25 @@ Hybrid architecture
 
 ### 4.2 Comparison to state of the art
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/3-image-classification-performance.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/3-image-classification-performance.png){: .align-center}
 
 - ViT 모델 간 성능을 비교할 때, ImageNet21k 보다 JFT-300M의 성능이 좋으며 ViT-L/16 보다 ViT-H/14 성능이 좋다.
 
 - BiT, Noisy student와 비교할 때, JFT-300M으로 학습한 ViT-H/14가 가장 성능이 좋으며 학습시간도 굉장히 짧다.
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/4-VTAB-performance.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/4-VTAB-performance.png){: .align-center}
 
 - VTAB 성능 면에서도 BiT-L보다 성능이 좋다.
 
 ### 4.3 Pre-training data requirements
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/5-pretrain-dataset.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/5-pretrain-dataset.png){: .align-center}
 
 - ImageNet에서는 BiT가 더 성능이 좋았지만, JFT-300M에서 ViT가 더 성능이 잘 나온다.
 
 - 또한, JFT-300M에서 ViT 모델의 크기와 성능이 비례하는 모습이 나타난다.
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/6-fewshot-evaluation-on-pretrain-size.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/6-fewshot-evaluation-on-pretrain-size.png){: .align-center}
 
 - Pre-train시 JFT-300M dataset 중 일부만을 사용하여 dataset 크기에 따른 성능 변화를 확인했다. early-stopping을 적용했고, full fine-tuning 대신 few-shot linear acc를 구했다.
 
@@ -162,7 +162,7 @@ Hybrid architecture
 
 ### 4.4 Scaling study
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/7-acc-about-computational-cost.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/7-acc-about-computational-cost.png){: .align-center}
 
 - ViT는 performance/compute trade-off에서 ResNet보다 좋다.
 
@@ -172,7 +172,7 @@ Hybrid architecture
 
 - Appendix D.5
 
-    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/9-figure12.png)
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/9-figure12.png){: .align-center}
 
     Left
 
@@ -184,7 +184,7 @@ Hybrid architecture
 
 ### 4.5 Inspecting vision transformer
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/8-figure7.png)
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/8-figure7.png){: .align-center}
 
 Left
 
@@ -204,7 +204,7 @@ Right
 
 - Attention D.7
 
-    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/10-figure11.png)
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/An-Image-is-Worth-16x16-Words-Transformers-for-Image-Recognition-at-Scale/10-figure11.png){: .align-center}
 
     - Network depth가 0인 경우를 보자. ViT 모델에 비해 ResNet 모델은 약 2배의 mean attention distance를 보인다. 이는 앞서 설명했던 image에 대한 CNN 구조의 inductive bias가 갖는 장점으로 볼 수도 있다.
 

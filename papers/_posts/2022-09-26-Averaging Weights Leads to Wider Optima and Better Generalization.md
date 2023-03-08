@@ -56,7 +56,7 @@ SWA는 optimization, regularization과 관련이 있습니다.
     
     - Garipov et al. (2018) (FGE) : Cyclical LR로 학습하며 ensemble에 사용할 수 있는 준수한 성능을 갖는 다양한 model들을 선택하는 방법을 제안했습니다.
 
-        - ![FGE](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/12-fge.png)
+        - ![FGE](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/12-fge.png){: .align-center}
 
 - Regularization
 
@@ -76,11 +76,11 @@ SWA는 optimization, regularization과 관련이 있습니다.
 
 ### 3.1 Ananlysis of SGD Trajectories
 
-![Figure 2](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/2-fig2.png)
+![Figure 2](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/2-fig2.png){: .align-center}
 
 Figure 2는 cyclical LR 그래프이며, epoch가 커짐에 따라 LR이 주기적으로 감소되는 형태로 restart decaying (annealing) scheduler를 의미합니다. 또한, 기존의 연구에서 사용하던 cyclical LR과 다르게 warmup 없이 discontinuous하게 적용했습니다. 그 이유는 `SWA가 단일 모델의 성능을 높이는 것이 아니라 loss surface 상에서의 exploration에 초점을 맞추고 있기 때문`입니다. 위와 같은 이유로 cyclical LR과 constant LR을 비교하는 실험을 통해 LR scheduler에 따른 SGD trajectory를 확인하고자 했습니다.
 
-![Figure 3](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/3-fig3.png)
+![Figure 3](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/3-fig3.png){: .align-center}
 
 Figure 3은 train loss, test error에 대해 처음, 중간, 마지막 3개의 points가 존재하는 평면 위에 나머지 points를 투영시켜 SGD의 trajectory를 시각화했습니다.
 
@@ -92,7 +92,7 @@ Figure 3은 train loss, test error에 대해 처음, 중간, 마지막 3개의 p
 
 ### 3.2 SWA Algorithm
 
-![SWA Algorithm](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/4-swa.png)
+![SWA Algorithm](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/4-swa.png){: .align-center}
 
 $w_{SWA}$를 얻는 방법이 LR에 따라 약간 다릅니다.
 
@@ -115,11 +115,11 @@ $$ w_{SGD}(t,d) = w_{SGD} + t*d $$
 
 따라서 저자들은 $w_{SWA}$와 $w_{SGD}$ 중 어떤 방식이 더 넓은 solution을 찾는지를 확인하기 위해, $w_{SWA}$, $w_{SGD}$ 각각의 weight를 기점으로 단위 구체 상에서의 random direction vector $d$에 distance $t$를 늘려가면서 일반화 성능의 변화를 확인합니다. ($w_{SWA}$, $w_{SGD}$ 에서 거리가 멀어지는데도 일반화 성능이 높게 유지된다면 상대적으로 더 넓은 solution을 찾았다고 볼 수 있습니다.)
 
-![Figure 4](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/5-fig4.png)
+![Figure 4](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/5-fig4.png){: .align-center}
 
 그 결과는 Figure 4에서 확인할 수 있습니다. 두 그래프 모두 초록선의 SGD보다 파란선의 SWA의 기울기가 완만하므로 `SWA가 SGD보다 넓은 optima를 찾았다`고 볼 수 있습니다. 다만 오른쪽의 그래프에서는 distance가 낮은 구간에서 초록선의 SGD가 더 낮은 train loss를 갖는데, 이는 앞선 실험 결과(SWA는 ensemble을 목표하기 때문에 단일 모델의 loss는 크게 중요하지 않다.)와 동일한 맥락에서 해석될 수 있습니다.
 
-![Figure 5](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/6-fig5.png)
+![Figure 5](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/6-fig5.png){: .align-center}
 
 $$ w(t) = t*w_{SGD} + (1-t)*w_{SWA} $$
 
@@ -147,7 +147,7 @@ Convex Minimization
 
 ### 4.1 CIFAR Datasets
 
-![Table 1](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/7-table1.png)
+![Table 1](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/7-table1.png){: .align-center}
 
 Table 1에 등장하는 Budget은 `SGD 훈련 과정에서 수렴되었다고 판단되는 epoch`를 의미합니다. 먼저 SWA를 보면 훈련 epoch를 늘렸을 때 성능 향상이 존재하는 것을 확인할 수 있습니다. SWA 학습 과정은 각 모델별로 약간 다르긴 하지만, 먼저 SGD로 0.75 ~ 1.0 Bugdet을 학습한 후에 추가로 0.25 / 0.5 / 0.75 Budget 만큼 SWA로 학습했습니다.
 
@@ -155,19 +155,19 @@ Table 1에 등장하는 Budget은 `SGD 훈련 과정에서 수렴되었다고 �
 
 ### 4.2 ImageNet
 
-![Table 2](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/8-table2.png)
+![Table 2](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/8-table2.png){: .align-center}
 
 Torchvision에서 제공하는 pretrained model에 5 / 10 epoch 동안 SWA 학습을 시켰더니 약 0.6 ~ 0.9 % 점수가 상승하였습니다.
 
 ### 4.3 Effect of the Learning Rate Schedule
 
-![Figure 6](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/9-fig6.png)
+![Figure 6](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/9-fig6.png){: .align-center}
 
 다양한 LR schedule의 결과를 확인해보기 위해 125 epoch 까지는 동일한 방식으로 SGD를 사용했고, 이후 적용되는 LR와 schedule 방식을 다르게 적용했습니다. Constant LR을 사용했을 때, 수렴 속도가 빠르고 Test error도 더 낮은 것을 확인할 수 있습니다.
 
 ### 4.4 DNN Training with a Fixed Learning Rate
 
-![Figure 7](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/10-fig7.png)
+![Figure 7](https://dongwoo-im.github.io/assets/img/posts/Averaging Weights Leads to Wider Optima and Better Generalization (SWA)/10-fig7.png){: .align-center}
 
 - Blue : SGD / Cyclical LR 학습
 
