@@ -34,7 +34,7 @@ keywords:              ['AI', 'Artificial Intelligence', 'Deep Learning', 'Compu
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/logo.ico/apple-touch-icon.png
+logo:                  /assets/logo.ico/apple-touch-icon.webp
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
