@@ -16,7 +16,7 @@ url:                   https://dongwoo-im.github.io/
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
-lang:                  ko, en
+lang:                  ko
 
 # The title of your blog. Used in the sidebar and the browser tab.
 title:                 Dongwoo-Im's Blog
@@ -29,12 +29,12 @@ description:           AI Research Blog
 tagline:               AI Research Blog
 
 # A list of keywords for your blog
-keywords:              ['AI']
+keywords:              ['AI', 'Artificial Intelligence', 'Deep Learning', 'Computer Vision']
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-# logo:                  /assets/img/sky.png
+logo:                  /assets/logo.ico/favicon-16x16.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
