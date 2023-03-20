@@ -14,11 +14,11 @@ author1:
 
   # This photo will be used in the about section
   picture:
-    path:            https://dongwoo-im.github.io/assets/img/profile-128x128.jpg
+    path:            https://dongwoo-im.github.io/assets/img/profile-128x128.webp
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
-      1x:            https://dongwoo-im.github.io/assets/img/profile-128x128.jpg
-      2x:            https://dongwoo-im.github.io/assets/img/profile-256x256.jpg
+      1x:            https://dongwoo-im.github.io/assets/img/profile-128x128.webp
+      2x:            https://dongwoo-im.github.io/assets/img/profile-256x256.webp
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
