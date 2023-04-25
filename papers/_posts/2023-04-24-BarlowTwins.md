@@ -178,13 +178,13 @@ InfoNCE에 존재하는 temperature parameter를 통해 batch 내에서 hard neg
 
 ### Whitening
 
-최근의 [W-MSE 논문](https://arxiv.org/abs/2007.06346)과 비교하면, Barlow Twins는 일종의 soft-whitening 기법으로 해석할 수 있다고 언급하고 있습니다. (성능은 BT가 더 좋다고 하네요.)
+최근의 [W-MSE 논문](https://arxiv.org/abs/2007.06346)과 비교하면, Barlow Twins는 일종의 `soft-whitening` 기법으로 해석할 수 있다고 언급하고 있습니다. (성능은 BT가 더 좋다고 하네요.)
 
 ### IMAX
 
 ![IMAX](https://dongwoo-im.github.io/assets/img/posts/2023-04-24-BarlowTwins/17-IMAX.webp){: .align-center}
 
-SSL의 초기 방법 중 하나인 information maximization 분야와 유사한 점이 있다고 언급합니다. 하지만 위 수식을 보면 embedding vector 2개에 대한 덧셈, 뺄셈 연산을 거친 vector의 covariance의 차이를 measure하는 IMAX objective는 직접적으로 정보량에 대한 연산을 수행한다는 점에서 차이가 있다고 밝히고 있으며, 실제로 ImageNet에 적용해보았을 때에도 학습이 정상적으로 되진 않았다고 주장합니다.
+SSL의 초기 방법 중 하나인 information maximization 분야와 유사한 점이 있다고 언급합니다. 하지만 위 수식을 보면 embedding vector 2개에 대한 덧셈, 뺄셈 연산을 거친 vector의 covariance을 measure하는 `IMAX objective는 직접적으로 정보량에 대한 연산을 수행한다는 점에서 차이가 있다`고 밝히고 있으며, 실제로 ImageNet에 적용해보았을 때에도 학습이 정상적으로 되진 않았다고 주장합니다.
 
 ---
 
