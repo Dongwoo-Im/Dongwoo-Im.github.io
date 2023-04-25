@@ -21,11 +21,7 @@ Introduction 부분은 굉장히 설명이 잘 되어 있어서 한번 읽어보
 
 ---
 
-</br>
-
 ## <center> Abstract
-
-</br>
 
 Contrastive objective에 기반하는 self-supervised learning(SSL)으로 학습할 경우, `representation을 잘 추출하지 못하는 collapse 현상`이 생기게 됩니다. (관련해서는 [DirectCLR 논문](https://arxiv.org/abs/2110.09348)을 참고하셔도 좋을 것 같습니다.)
 
@@ -46,11 +42,7 @@ Contrastive objective에 기반하는 self-supervised learning(SSL)으로 학습
 
 즉, contrastive SSL 학습 안정성을 높이기 위해 적용했던 여러 trick 없이도 collapsing 현상을 막을 수 있는 것입니다.
 
-</br>
-
 ## <center> Method
-
-</br>
 
 먼저 Barlow Twins라는 논문 이름 중, `Barlow는 redundancy reduction 이론을 제안했던 저자의 이름`을 따왔고, `두 개의 동일한 (비대칭이 아닌) 네트워크를 사용한다는 점에서 Twins라는 이름`을 붙인 것 같습니다.
 
@@ -90,11 +82,7 @@ SSL에서 사용하는 augmentation을 일종의 distortion이라고 본다면, 
 
 여기서 더 궁금하신 분은 [Information Bottleneck Theory 논문](https://openreview.net/forum?id=ry_WPG-A-)이나 Barlow Twins 논문의 Appendix를 참고하시면 좋을 것 같습니다.
 
-</br>
-
 ## <center> Results
-
-</br>
 
 Barlow Twins의 성능이 SOTA보다 낮긴 하지만, 새로운 objective를 제안하였다는 점을 고려하면 준수한 성능 같습니다.
 
@@ -114,11 +102,7 @@ Table 3: 다른 이미지 분류 dataset으로 fine-tune (transfer learning)
 
 Table 4: 다른 task로 fine-tune (transfer learning)
 
-</br>
-
 ## <center> Ablations
-
-</br>
 
 ### Loss function
 
@@ -170,11 +154,7 @@ BT의 저자들이 얻은 인사이트를 바탕으로, BYOL의 projector와 pre
 
 Objective에 사용되는 lambda의 영향은 크지 않은 것을 볼 수 있습니다.
 
-</br>
-
 ## <center> Discussion
-
-</br>
 
 ### infoNCE
 
