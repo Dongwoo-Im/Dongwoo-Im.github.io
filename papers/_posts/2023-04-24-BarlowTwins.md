@@ -23,9 +23,9 @@ Introduction 부분은 굉장히 설명이 잘 되어 있어서 한번 읽어보
 
 ## <center> Abstract
 
-Contrastive objective에 기반하는 self-supervised learning(SSL)으로 학습할 경우, `representation을 잘 추출하지 못하는 collapse 현상`이 생기게 됩니다. (관련해서는 [DirectCLR 논문](https://arxiv.org/abs/2110.09348)을 참고하셔도 좋을 것 같습니다.)
+Contrastive objective에 기반하는 self-supervised learning(SSL)으로 학습할 경우, **representation을 잘 추출하지 못하는 collapse 현상**이 생기게 됩니다. (관련해서는 [DirectCLR 논문](https://arxiv.org/abs/2110.09348)을 참고하셔도 좋을 것 같습니다.)
 
-이러한 collapsing 방지를 위해 이전 연구들에서 `학습 안정성을 높이는 다양한 trick`을 적용했습니다.
+이러한 collapsing 방지를 위해 이전 연구들에서 **학습 안정성을 높이는 다양한 trick**을 적용했습니다.
 
 - SimCLR: negative sample도 학습하기 때문에 large batch 필요
 - MoCo: asymmetric network design + momentum encoder
@@ -33,7 +33,7 @@ Contrastive objective에 기반하는 self-supervised learning(SSL)으로 학습
 - BYOL: asymmetric network design + momentum encoder
 - SimSiam: asymmetric network design + stop-gradient
 
-이와 다르게 `Barlow Twins에서는 redundancy reduction 개념을 적용한 objective를 통해 collapsing을 극복할 수 있다`고 주장합니다.
+이와 다르게 **Barlow Twins에서는 redundancy reduction 개념을 적용한 objective를 통해 collapsing을 극복할 수 있다**고 주장합니다.
 
 - large batch 필요 X
 - predictor network와 같은 비대칭성 필요 X
@@ -44,7 +44,7 @@ Contrastive objective에 기반하는 self-supervised learning(SSL)으로 학습
 
 ## <center> Method
 
-먼저 Barlow Twins라는 논문 이름 중, `Barlow는 redundancy reduction 이론을 제안했던 저자의 이름`을 따왔고, `두 개의 동일한 (비대칭이 아닌) 네트워크를 사용한다는 점에서 Twins라는 이름`을 붙인 것 같습니다.
+먼저 Barlow Twins라는 논문 이름 중, **Barlow는 redundancy reduction 이론을 제안했던 저자의 이름**을 따왔고, **두 개의 동일한 (비대칭이 아닌) 네트워크를 사용한다는 점에서 Twins라는 이름**을 붙인 것 같습니다.
 
 ![Figure 1](https://dongwoo-im.github.io/assets/img/posts/2023-04-24-BarlowTwins/1-fig1.webp){: .align-center}
 
@@ -58,7 +58,7 @@ Figure 1에는 Barlow Twins의 framework를 표현했습니다. 눈여겨 볼만
 - 뒤에 있는 redundancy reduction term: cross-correlation의 대각 행렬이 아닌 값을 0으로
 - 그리고 2개의 term이 lambda 라는 매개변수로 조절이 가능한 구조입니다.
 
-즉, `Barlow Twins는 embedding feature가 다른 feature와 중복이 되지 않도록 학습`하는 것입니다.
+즉, **Barlow Twins는 embedding feature가 다른 feature와 중복이 되지 않도록 학습**하는 것입니다.
 
 참고로, contrasive SSL에서는 cosine similarity 계산 과정에서 feature를 축으로 L2-norm을 적용하지만, Barlow Twins에서는 batch를 축으로 normalization을 한다는 차이점이 있습니다.
 
@@ -66,7 +66,7 @@ Figure 1에는 Barlow Twins의 framework를 표현했습니다. 눈여겨 볼만
 
 또한, Barlow Twin's objective는 information theory 관점에서 Information Bottleneck objective와 유사하다고 주장합니다.
 
-IB objective를 정말 간단하게 말씀드리면, `딥러닝 모델은 input data로부터 fitting phase와 compression phase를 거치면서 generalization 특성을 갖는다`는 내용입니다. 이를 아래의 식으로 표현하기도 하는 것 같습니다. 참고로 I는 mutual information을 의미합니다.
+IB objective를 정말 간단하게 말씀드리면, **딥러닝 모델은 input data로부터 fitting phase와 compression phase를 거치면서 generalization 특성을 갖는다**는 내용입니다. 이를 아래의 식으로 표현하기도 하는 것 같습니다. 참고로 I는 mutual information을 의미합니다.
 
 - minimize I(input, latent) + maximize I(latent, target)
 
@@ -76,7 +76,7 @@ IB objective를 정말 간단하게 말씀드리면, `딥러닝 모델은 input 
 
 이러한 IB objective를 contrastive SSL에 접목하면, 위 그림처럼 표현할 수 있다고 주장합니다.
 
-SSL에서 사용하는 augmentation을 일종의 distortion이라고 본다면, `SSL은 distorted 이미지보다는 원본 이미지의 특성들을 잘 표현하는 representation을 뽑아낼 수 있도록 학습하는 과정`이라고 볼 수 있다는 것이죠. (각기 다른 distorted (ex. crop) 이미지 2개로부터 얻은 representation 사이의 similarity를 높이도록 학습하는 과정을 생각해보시면 될 것 같습니다.)
+SSL에서 사용하는 augmentation을 일종의 distortion이라고 본다면, **SSL은 distorted 이미지보다는 원본 이미지의 특성들을 잘 표현하는 representation을 뽑아낼 수 있도록 학습하는 과정**이라고 볼 수 있다는 것이죠. (각기 다른 distorted (ex. crop) 이미지 2개로부터 얻은 representation 사이의 similarity를 높이도록 학습하는 과정을 생각해보시면 될 것 같습니다.)
 
 - minimize I(distort, latent) + maximize I(image, latent)
 
@@ -164,9 +164,9 @@ Objective에 사용되는 lambda의 영향은 크지 않은 것을 볼 수 있�
 
 ![BT](https://dongwoo-im.github.io/assets/img/posts/2023-04-24-BarlowTwins/16-BT.webp){: .align-center}
 
-순서대로 infoNCE, Barlow Twins objective이고 비교를 위해 비슷한 형태로 표현하였습니다. 이들의 `첫 번째 term은 distortion에 invariant한 embedding을 추출할 수 있도록 (유사도가 높아지도록) 학습하는 것을 목표`로 하고 있습니다. 두 번째 term의 목표는 variability를 높이는 것으로 동일하지만 그 방식에서 차이가 존재합니다. `InfoNCE는 pairwise distance를 멀어지게 함으로써`, `BT는 embedding component 각각의 decorrelation`을 통해서 목표를 이루고자 합니다.
+순서대로 infoNCE, Barlow Twins objective이고 비교를 위해 비슷한 형태로 표현하였습니다. 이들의 **첫 번째 term은 distortion에 invariant한 embedding을 추출할 수 있도록 (유사도가 높아지도록) 학습하는 것을 목표**로 하고 있습니다. 두 번째 term의 목표는 variability를 높이는 것으로 동일하지만 그 방식에서 차이가 존재합니다. **InfoNCE는 pairwise distance를 멀어지게 함으로써**, **BT는 embedding component 각각의 decorrelation**을 통해서 목표를 이루고자 합니다.
 
-이러한 차이를 수학적으로 접근하면 infoNCE의 contrastive term은 `non-parametric entropy estimator`이기 때문에 차원의 저주에 빠지기 쉽고, low-dimension에서 estimation이 가능하며, large sample 수가 필요하다고 합니다. 반면, Barlow Twins의 redundancy reduction term은 `proxy entropy estimator under Gaussian parametrization` 이기 때문에 더 적은 sample이나, large-dimension 에서도 estimation이 가능하다고 하네요.
+이러한 차이를 수학적으로 접근하면 infoNCE의 contrastive term은 **non-parametric entropy estimator**이기 때문에 차원의 저주에 빠지기 쉽고, low-dimension에서 estimation이 가능하며, large sample 수가 필요하다고 합니다. 반면, Barlow Twins의 redundancy reduction term은 **proxy entropy estimator under Gaussian parametrization** 이기 때문에 더 적은 sample이나, large-dimension 에서도 estimation이 가능하다고 하네요.
 
 이외에도, infoNCE는 feature dimension, Barlow Twins는 batch dimension을 따라 normalization을 수행하고,
 
@@ -178,13 +178,13 @@ InfoNCE에 존재하는 temperature parameter를 통해 batch 내에서 hard neg
 
 ### Whitening
 
-최근의 [W-MSE 논문](https://arxiv.org/abs/2007.06346)과 비교하면, Barlow Twins는 일종의 `soft-whitening` 기법으로 해석할 수 있다고 언급하고 있습니다. (성능은 BT가 더 좋다고 하네요.)
+최근의 [W-MSE 논문](https://arxiv.org/abs/2007.06346)과 비교하면, Barlow Twins는 일종의 **soft-whitening** 기법으로 해석할 수 있다고 언급하고 있습니다. (성능은 BT가 더 좋다고 하네요.)
 
 ### IMAX
 
 ![IMAX](https://dongwoo-im.github.io/assets/img/posts/2023-04-24-BarlowTwins/17-IMAX.webp){: .align-center}
 
-SSL의 초기 방법 중 하나인 information maximization 분야와 유사한 점이 있다고 언급합니다. 하지만 위 수식을 보면 embedding vector 2개에 대한 덧셈, 뺄셈 연산을 거친 vector의 covariance을 measure하는 `IMAX objective는 직접적으로 정보량에 대한 연산을 수행한다는 점에서 차이가 있다`고 밝히고 있으며, 실제로 ImageNet에 적용해보았을 때에도 학습이 정상적으로 되진 않았다고 주장합니다.
+SSL의 초기 방법 중 하나인 information maximization 분야와 유사한 점이 있다고 언급합니다. 하지만 위 수식을 보면 embedding vector 2개에 대한 덧셈, 뺄셈 연산을 거친 vector의 covariance을 measure하는 **IMAX objective는 직접적으로 정보량에 대한 연산을 수행한다는 점에서 차이가 있다**고 밝히고 있으며, 실제로 ImageNet에 적용해보았을 때에도 학습이 정상적으로 되진 않았다고 주장합니다.
 
 ---
 
