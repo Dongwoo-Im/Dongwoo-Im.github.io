@@ -50,13 +50,13 @@ Contrastive objective에 기반하는 self-supervised learning(SSL)으로 학습
 
 Figure 1에는 Barlow Twins의 framework를 표현했습니다. 눈여겨 볼만한 점은 network 2개의 구조가 동일하다는 것과, identity matrix를 target으로 embedding 간 cross-correlation matrix를 optimize하는 것입니다.
 
-![BarlowTwins Objetive](https://dongwoo-im.github.io/assets/img/posts/2023-04-24-BarlowTwins/2-objective.webp){: .align-center}
-
 ### Barlow Twin's objective
 
-- 앞에 있는 invariance term: cross-correlation의 대각 행렬을 1로
-- 뒤에 있는 redundancy reduction term: cross-correlation의 대각 행렬이 아닌 값을 0으로
-- 그리고 2개의 term이 lambda 라는 매개변수로 조절이 가능한 구조입니다.
+![BarlowTwins Objetive](https://dongwoo-im.github.io/assets/img/posts/2023-04-24-BarlowTwins/2-objective.webp){: .align-center}
+
+- invariance term: cross-correlation의 대각 행렬을 1로
+- redundancy reduction term: cross-correlation의 대각 행렬이 아닌 값을 0으로
+- 그리고 2개의 term이 lambda ($\lambda$) 라는 매개변수로 조절이 가능한 구조입니다.
 
 즉, **Barlow Twins는 embedding feature가 다른 feature와 중복이 되지 않도록 학습**하는 것입니다.
 
@@ -66,7 +66,7 @@ Figure 1에는 Barlow Twins의 framework를 표현했습니다. 눈여겨 볼만
 
 또한, Barlow Twin's objective는 information theory 관점에서 Information Bottleneck objective와 유사하다고 주장합니다.
 
-IB objective를 정말 간단하게 말씀드리면, **딥러닝 모델은 input data로부터 fitting phase와 compression phase를 거치면서 generalization 특성을 갖는다**는 내용입니다. 이를 아래의 식으로 표현하기도 하는 것 같습니다. 참고로 I는 mutual information을 의미합니다.
+IB objective를 정말 간단하게 말씀드리면, **딥러닝 모델은 input data로부터 fitting phase와 compression phase를 거치면서 generalization 특성을 갖는다**는 내용입니다. 이를 아래의 식으로 표현하기도 하는 것 같습니다. 참고로 I는 mutual information으로 MI라고도 표현하며 **하나의 변수가 다른 변수에 제공하는 정보의 양**을 의미합니다.
 
 - minimize I(input, latent) + maximize I(latent, target)
 
