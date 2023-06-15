@@ -91,7 +91,7 @@ GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 �
 
 ## 3. Framework of Style Transformer
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer-for-Image-Inversion-and-Editing/1-framework-of-style-transformer.webp){: .align-center}
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer/1-framework-of-style-transformer.webp){: .align-center}
 
 ### Style Transformer Block
 
@@ -174,7 +174,7 @@ GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 �
 
 ### Reference-based Editing
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer-for-Image-Inversion-and-Editing/2-reference-based-editing.webp){: .align-center}
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer/2-reference-based-editing.webp){: .align-center}
 
 - Module design
     
@@ -269,7 +269,7 @@ GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 �
 
 - Convnet과 비교할 때, 겨우 18 (face), 16 (car) token을 사용한 점에서 transformer 방식이 가볍고 효율적인 방법임을 알 수 있고, 이는 또한 성능에서 나타나고 있습니다.
 
-![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer-for-Image-Inversion-and-Editing/3-inversion-results.webp){: .align-center}
+![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer/3-inversion-results.webp){: .align-center}
 
 ### Editing Results
 
@@ -277,17 +277,17 @@ GAN inversion / editing task에 대한 지식도 부족하고 논문 리뷰도 �
     
     - InterFaceGAN, StyleSpace와 비교하여 좋은 성능을 보이고 있습니다.
     
-    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer-for-Image-Inversion-and-Editing/4-label-based-editing-results.webp){: .align-center}
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer/4-label-based-editing-results.webp){: .align-center}
     
     - Attribute Dependency (AD) : attributes 간 disentanglement 측정하는 지표입니다.
     
     - (보완 예정) Input image와 edited image 사이의 변화량을 normalize하여 AD score를 구할 수 있습니다. 여기서 $k$ attritbue에 대한 mean-AD를 구하기 위해서는 $not k$ attributes에 대한 AD의 평균으로 구할 수 있습니다. (?)
     
-    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer-for-Image-Inversion-and-Editing/5-label-based-editing-results-AD.webp){: .align-center}
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer/5-label-based-editing-results-AD.webp){: .align-center}
     
 - Reference-based Editing
     
-    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer-for-Image-Inversion-and-Editing/6-reference-based-editing-results.webp){: .align-center}
+    ![Untitled](https://dongwoo-im.github.io/assets/img/posts/2022-09-08-Style-Transformer/6-reference-based-editing-results.webp){: .align-center}
     
 
 ---
