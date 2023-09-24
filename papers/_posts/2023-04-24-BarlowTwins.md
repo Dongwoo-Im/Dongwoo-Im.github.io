@@ -178,7 +178,7 @@ InfoNCE에 존재하는 temperature parameter를 통해 batch 내에서 hard neg
 
 ### Whitening
 
-최근의 [W-MSE 논문](https://arxiv.org/abs/2007.06346)과 비교하면, Barlow Twins는 일종의 **soft-whitening** 기법으로 해석할 수 있다고 언급하고 있습니다. (성능은 BT가 더 좋다고 하네요.)
+비슷한 시기에 나왔던 [W-MSE 논문](https://arxiv.org/abs/2007.06346)과 비교하면, Barlow Twins는 일종의 **soft-whitening** 기법으로 해석할 수 있다고 언급하고 있습니다. (성능은 BT가 더 좋다고 하네요.)
 
 ### IMAX
 
