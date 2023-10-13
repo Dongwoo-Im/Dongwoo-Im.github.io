@@ -27,9 +27,10 @@ sitemap :
 
 ## <center> 1. Introduction
 
-대용량의 이미지로 pretrain된 모델로 downstream task를 해결하는 것은 이제 상식이다. 특히, DINO의 경우 self-supervised로 학습함에도 downstream task에 대한 성능이 준수하고 unsupervised segmentation도 가능하기에 많은 관심을 받았다. 더 나아가, DINO의 attention map을 활용한 object dsicovery 알고리즘인 LOST도 등장하였다.
+대용량의 이미지를 pretrain한 모델로 downstream task를 해결하는 것은 당연한 접근이다. 특히, DINO의 경우 self-supervised로 학습함에도 downstream task에 대한 성능이 준수하고 unsupervised segmentation도 가능하기에 많은 관심을 받았다. 더 나아가, DINO의 attention map을 활용한 object dsicovery 알고리즘인 LOST도 등장하였다.
 
 DINO 이후 제안된 DINOv2에서는 mono depth estimation, segmentation과 같은 dense prediction task에서 성능을 고도화했다. 그런데 **DINOv2와 LOST가 incompatible한 것을 발견했고, DINOv2 attention map에 존재하는 artifact가 그 원인일 것으로 추정했다.** 그리고 이후 supervised ViT(DeiT, OpenCLIP)에서도 동일한 artifact를 발견하게 된다. (Figure 2)
+- DINO에서 artifact가 거의 존재하지 않는 이유는 2.2에서 추정하고 있다. (명쾌한 설명은 아님)
 
 ![Figure 2](https://dongwoo-im.github.io/assets/img/posts/2023-10-13-ViT_need_registers/fig2.webp){: .align-center}
 
@@ -94,13 +95,13 @@ Artifact patch는 인접한 patch 4개와의 cosine 유사도가 높은 것을 �
 
 이번에는 image classification task에 대한 linear probing 성능이다. 여기서는 normal patch에 비해 outlier patch의 성능이 더 높다.
 
-즉, outlier patch는 normal patch에 비해, local information 보다 global information을 더 포함하고 있으며, 이로 인해 인접한 patch와의 cosine similarity가 높다고 볼 수 있다.
+즉, outlier patch는 (normal patch에 비해) **local information 보다 global information을 더 포함하고 있으며, 이로 인해 인접한 patch와의 cosine similarity가 높다**고 볼 수 있다.
 
 ### 2.2 Hypothesis and Remediation
 
-2.1 에서의 관측을 바탕으로 **충분히 학습된 큰 사이즈의 모델은 중복되는 token이 global information을 처리할 수 있게 한다**는 가설을 도출한다. 이러한 가설이 모델링 의도와는 일치하진 않지만 큰 문제가 있지는 않다. 다만 dense prediction task에서는 문제가 된다.
+2.1 에서의 관측을 바탕으로 **충분히 학습된 큰 사이즈의 모델은 중복되는 token이 global information을 처리할 수 있게 한다**는 가설을 도출한다. 이러한 가설이 모델링 의도와는 일치하진 않지만 크게 문제되지는 않는다. 하지만 dense prediction task에서는 문제될 수 있다.
 
-이를 해결하기 위해 register라는 additional token을 class token과 동일한 방식으로 추가한다. 그리고 이 token들은 inference에서 사용하지 않는다.
+이를 해결하기 위해 register라는 additional token을 class token과 동일한 방식으로 추가한다. 그리고 register token은 inference에서 사용하지 않는다.
 - 이러한 방식은 NLP 도메인의 Memory Transformer 논문에서 처음 적용되었다고 한다.
 - 기존의 token들과 다른 점은 어떠한 정보도 주입되지 않고, token을 사용하지 않는다는 점이다.
 
