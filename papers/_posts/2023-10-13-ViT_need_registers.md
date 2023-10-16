@@ -156,6 +156,3 @@ VOC 2007 dataset에 대한 DINO + LOST의 성능이 61.9인데, DINOv2 + reg + L
 Official DINOv2에서는 positional embedding이 16x16에서 7x7로 interpolate될 때 antialiasing을 사용하지 않았다. 그래서 Figure 11과 같은 gradient pattern을 갖게 되어, Figure 10 좌측 그래프처럼 outlier token이 vertical-striped pattern을 갖고 나타나게 된다.
 
 반면 저자들은 antialiasing을 적용하여 Figure 10의 우측 그래프처럼 vertical pattern을 없앨 수 있었다. 이때 중심부 보다는 가장자리에 outlier token이 많이 나타나는 것 또한, 대부분의 이미지가 object-centric하기에 가장자리 patch에 local information이 필요하지 않았을 것이라는 저자들의 가설을 뒷받침한다.
-
-- [official DINOv2 interpolate_pos_encoding](https://github.com/facebookresearch/dinov2/blob/main/dinov2/models/vision_transformer.py#L164-L191)
-- [unofficial lucidrain's posemb_sincos_2d](https://github.com/lucidrains/vit-pytorch/blob/51310d1d0710158eed5419677fff3ddc9780b279/vit_pytorch/simple_vit_with_register_tokens.py#L17-L26)
